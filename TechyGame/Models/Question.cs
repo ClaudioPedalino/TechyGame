@@ -12,8 +12,10 @@ namespace TeckyGame.Models
         [Key]
         public int Id { get; set; }
 
+        [ForeignKey("OptionsXQuestion")]
         public OptionsXQuestion Id_OptionsXQuestion { get; set; }
 
+        [ForeignKey("GameType")]
         public GameType Id_GameType { get; set; }
 
         [Column(TypeName = "nvarchar(50)")]

@@ -14,5 +14,8 @@ namespace TeckyGame.Models
         }
 
         public DbSet<GameType> GameType { get; set; }
+        public DbSet<Options> Options { get; set; }
+        public DbSet<OptionsXQuestion> OptionsXQuestion { get; set; }
+        public DbSet<Question> Question { get; set; }
     }
 }

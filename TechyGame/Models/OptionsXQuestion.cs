@@ -12,10 +12,11 @@ namespace TeckyGame.Models
         [Key]
         public int Id { get; set; }
 
-        //[EnumDataType]
+        [Required]
+        [ForeignKey("Options")]
         public IEnumerable<Options> Id_Option { get; set; }
 
-
+        [ForeignKey("Question")]
         public Question Id_Question { get; set; }
 
     }

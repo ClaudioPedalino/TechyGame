@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\claud\\source\\repos\\TechyGame\\TechyGame\\TechyGame.csproj": {}
+    "C:\\Users\\claud\\source\\repos\\WorkGit\\TechyGame\\TechyGame\\TechyGame.csproj": {}
   },
   "projects": {
-    "C:\\Users\\claud\\source\\repos\\TechyGame\\TechyGame\\TechyGame.csproj": {
+    "C:\\Users\\claud\\source\\repos\\WorkGit\\TechyGame\\TechyGame\\TechyGame.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\claud\\source\\repos\\TechyGame\\TechyGame\\TechyGame.csproj",
+        "projectUniqueName": "C:\\Users\\claud\\source\\repos\\WorkGit\\TechyGame\\TechyGame\\TechyGame.csproj",
         "projectName": "TechyGame",
-        "projectPath": "C:\\Users\\claud\\source\\repos\\TechyGame\\TechyGame\\TechyGame.csproj",
+        "projectPath": "C:\\Users\\claud\\source\\repos\\WorkGit\\TechyGame\\TechyGame\\TechyGame.csproj",
         "packagesPath": "C:\\Users\\claud\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\claud\\source\\repos\\TechyGame\\TechyGame\\obj\\",
+        "outputPath": "C:\\Users\\claud\\source\\repos\\WorkGit\\TechyGame\\TechyGame\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\claud\\AppData\\Roaming\\NuGet\\NuGet.Config",
