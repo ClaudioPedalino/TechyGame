@@ -11,7 +11,7 @@ namespace TeckyGame.Models
 
         [Required]
         [Column(TypeName = "nvarchar(50)")]
-        public string Descripcion { get; set; }
+        public string Description { get; set; }
 
     }
 }

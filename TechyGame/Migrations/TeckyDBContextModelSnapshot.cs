@@ -18,19 +18,172 @@ namespace TechyGame.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("TeckyGame.Models.Game", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Id_GameType");
+
+                    b.Property<string>("State")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(20)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Id_GameType");
+
+                    b.ToTable("Games");
+                });
+
             modelBuilder.Entity("TeckyGame.Models.GameType", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Descripcion")
+                    b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("GameType");
+                    b.ToTable("GameTypes");
+                });
+
+            modelBuilder.Entity("TeckyGame.Models.Option", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<bool>("IsCorrect")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Options");
+                });
+
+            modelBuilder.Entity("TeckyGame.Models.OptionsXQuestion", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Id_Option");
+
+                    b.Property<int>("Id_Question");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Id_Option");
+
+                    b.HasIndex("Id_Question");
+
+                    b.ToTable("OptionsXQuestions");
+                });
+
+            modelBuilder.Entity("TeckyGame.Models.Question", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int>("Id_GameType");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Id_GameType");
+
+                    b.ToTable("Questions");
+                });
+
+            modelBuilder.Entity("TeckyGame.Models.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<decimal>("Score")
+                        .HasColumnType("decimal");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("TeckyGame.Models.UserXGame", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Id_Game");
+
+                    b.Property<int>("Id_User");
+
+                    b.Property<int>("Score");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Id_Game");
+
+                    b.HasIndex("Id_User");
+
+                    b.ToTable("UsersXGame");
+                });
+
+            modelBuilder.Entity("TeckyGame.Models.Game", b =>
+                {
+                    b.HasOne("TeckyGame.Models.GameType", "GameTypes")
+                        .WithMany()
+                        .HasForeignKey("Id_GameType")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("TeckyGame.Models.OptionsXQuestion", b =>
+                {
+                    b.HasOne("TeckyGame.Models.Option", "Options")
+                        .WithMany()
+                        .HasForeignKey("Id_Option")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("TeckyGame.Models.Question", "Questions")
+                        .WithMany()
+                        .HasForeignKey("Id_Question")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("TeckyGame.Models.Question", b =>
+                {
+                    b.HasOne("TeckyGame.Models.GameType", "GameTypes")
+                        .WithMany()
+                        .HasForeignKey("Id_GameType")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("TeckyGame.Models.UserXGame", b =>
+                {
+                    b.HasOne("TeckyGame.Models.Game", "Games")
+                        .WithMany()
+                        .HasForeignKey("Id_Game")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("TeckyGame.Models.User", "Users")
+                        .WithMany()
+                        .HasForeignKey("Id_User")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

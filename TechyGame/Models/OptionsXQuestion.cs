@@ -12,12 +12,16 @@ namespace TeckyGame.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
-        [ForeignKey("Options")]
-        public IEnumerable<Options> Id_Option { get; set; }
+        public int Id_Option { get; set; }
 
-        [ForeignKey("Question")]
-        public Question Id_Question { get; set; }
+        public int Id_Question { get; set; }
+
+
+        [ForeignKey("Id_Option")]
+        public virtual Option Options { get; set; }
+
+        [ForeignKey("Id_Question")]
+        public virtual  Question Questions { get; set; }
 
     }
 }

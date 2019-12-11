@@ -7,16 +7,17 @@ using System.Threading.Tasks;
 
 namespace TeckyGame.Models
 {
-    public class Options
+    public class User
     {
         [Key]
         public int Id { get; set; }
 
         [Column(TypeName = "nvarchar(50)")]
-        public string Description { get; set; }
+        public string Name { get; set; }
 
-        [Column(TypeName = "bit")]
-        public bool IsCorrect { get; set; }
+        [Column(TypeName = "decimal")]
+        //[Column(TypeName = "int")]
+        public int Score { get; set; }
     }
 
 }

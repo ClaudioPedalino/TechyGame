@@ -13,9 +13,12 @@ namespace TeckyGame.Models
 
         }
 
-        public DbSet<GameType> GameType { get; set; }
-        public DbSet<Options> Options { get; set; }
-        public DbSet<OptionsXQuestion> OptionsXQuestion { get; set; }
-        public DbSet<Question> Question { get; set; }
+        public DbSet<GameType> GameTypes { get; set; }
+        public DbSet<Option> Options { get; set; }
+        public DbSet<OptionsXQuestion> OptionsXQuestions { get; set; }
+        public DbSet<Question> Questions { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<UserXGame> UsersXGame { get; set; }
+        public DbSet<Game> Games { get; set; }
     }
 }
